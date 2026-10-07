@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" fill="none">
+  <!-- Fondo transparente -->
+
+  <!-- Birrete: azul grisáceo medio para buena visibilidad en fondos oscuros -->
+  <g fill="#667085">
+    <path d="M500 110L790 235L500 360L210 235L500 110Z"/>
+    <path d="M305 330L470 392C481 396 488 407 488 419V485C488 501 478 516 463 522L360 561C330 550 305 528 305 496V330Z"/>
+    <path d="M695 330L530 392C519 396 512 407 512 419V485C512 501 522 516 537 522L640 561C670 550 695 528 695 496V330Z"/>
+  </g>
+
+  <!-- Libro abierto -->
+  <g fill="#6D00E8">
+    <path d="M135 525C285 516 408 566 484 650C494 661 500 676 500 691V900C407 818 289 778 135 792V525Z"/>
+    <path d="M865 525C715 516 592 566 516 650C506 661 500 676 500 691V900C593 818 711 778 865 792V525Z"/>
+  </g>
+
+  <!-- Símbolos de código -->
+  <path d="M410 610L290 730L410 845" stroke="#FFFFFF" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M590 610L710 730L590 845" stroke="#FFFFFF" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

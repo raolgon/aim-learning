@@ -1,0 +1,175 @@
+{
+  "name": "aimlearning",
+  "displayName": "AImlearning",
+  "description": "%description%",
+  "version": "0.18.0",
+  "icon": "media/logo.png",
+  "publisher": "aimlearning-local",
+  "license": "UNLICENSED",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning"
+  ],
+  "main": "./src/extension.js",
+  "extensionKind": [
+    "workspace"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "%capabilities.untrustedWorkspaces.description%"
+    },
+    "virtualWorkspaces": false
+  },
+  "activationEvents": [
+    "onView:aimlearning.home"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "aimlearning.open",
+        "title": "%contributes.commands.0.title%"
+      },
+      {
+        "command": "aimlearning.terminal",
+        "title": "%contributes.commands.1.title%"
+      },
+      {
+        "command": "aimlearning.verify",
+        "title": "%contributes.commands.2.title%"
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "primeros-pasos",
+        "title": "%contributes.walkthroughs.0.title%",
+        "description": "%contributes.walkthroughs.0.description%",
+        "steps": [
+          {
+            "id": "abrir-academia",
+            "title": "%contributes.walkthroughs.0.steps.0.title%",
+            "description": "%contributes.walkthroughs.0.steps.0.description%",
+            "media": {
+              "markdown": "media/walkthrough-academy.md"
+            },
+            "completionEvents": [
+              "onCommand:aimlearning.open",
+              "onView:aimlearning.home"
+            ]
+          },
+          {
+            "id": "aprender-bases",
+            "title": "%contributes.walkthroughs.0.steps.1.title%",
+            "description": "%contributes.walkthroughs.0.steps.1.description%",
+            "media": {
+              "markdown": "media/walkthrough-foundations.md"
+            },
+            "completionEvents": [
+              "onContext:aimlearning.foundationsComplete"
+            ]
+          },
+          {
+            "id": "abrir-carpeta",
+            "title": "%contributes.walkthroughs.0.steps.2.title%",
+            "description": "%contributes.walkthroughs.0.steps.2.description%",
+            "media": {
+              "markdown": "media/walkthrough-workspace.md"
+            },
+            "completionEvents": [
+              "onContext:aimlearning.workspaceReady"
+            ]
+          }
+        ]
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "aimlearning",
+          "title": "AImlearning",
+          "icon": "media/mark.svg"
+        }
+      ]
+    },
+    "views": {
+      "aimlearning": [
+        {
+          "id": "aimlearning.home",
+          "name": "%contributes.views.aimlearning.0.name%",
+          "type": "webview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AImlearning",
+      "properties": {
+        "aimlearning.language": {
+          "type": "string",
+          "enum": [
+            "es",
+            "en"
+          ],
+          "default": "es",
+          "scope": "window",
+          "description": "%contributes.configuration.properties.aimlearning.language.description%"
+        },
+        "aimlearning.cppCompiler": {
+          "type": "string",
+          "default": "g++",
+          "description": "%contributes.configuration.properties.aimlearning.cppCompiler.description%"
+        },
+        "aimlearning.cmakePath": {
+          "type": "string",
+          "default": "cmake",
+          "description": "%contributes.configuration.properties.aimlearning.cmakePath.description%"
+        },
+        "aimlearning.ctestPath": {
+          "type": "string",
+          "default": "ctest",
+          "description": "%contributes.configuration.properties.aimlearning.ctestPath.description%"
+        },
+        "aimlearning.gitPath": {
+          "type": "string",
+          "default": "git",
+          "description": "%contributes.configuration.properties.aimlearning.gitPath.description%"
+        },
+        "aimlearning.dotnetPath": {
+          "type": "string",
+          "default": "dotnet",
+          "description": "Ejecutable del SDK de .NET (nombre o ruta absoluta, sin argumentos)."
+        },
+        "aimlearning.pythonPath": {
+          "type": "string",
+          "default": "",
+          "description": "%contributes.configuration.properties.aimlearning.pythonPath.description%"
+        },
+        "aimlearning.nodePath": {
+          "type": "string",
+          "default": "",
+          "description": "%contributes.configuration.properties.aimlearning.nodePath.description%"
+        }
+      }
+    },
+    "taskDefinitions": [
+      {
+        "type": "aimlearning",
+        "required": [
+          "mission"
+        ],
+        "properties": {
+          "mission": {
+            "type": "string",
+            "description": "%contributes.taskDefinitions.0.properties.mission.description%"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/extension.js && node --check src/project-behavior.js && node --check src/project-feedback.js && node --check src/project-workspaces.js && node --check media/app.js && node --check media/project-view.js"
+  }
+}
